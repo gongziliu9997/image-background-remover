@@ -46,6 +46,12 @@ export async function POST(request: NextRequest) {
     const removeBgFormData = new FormData();
     removeBgFormData.append('image_file', image);
     removeBgFormData.append('size', 'auto');
+    // 优化参数
+    removeBgFormData.append('type', 'auto'); // 自动检测图像类型（person/product/car/animal）
+    removeBgFormData.append('type_level', '2'); // 最高精密度（0=快速，1=平衡，2=精准）
+    removeBgFormData.append('shadow', '1'); // 软阴影效果（0=无，1=软，2=强）
+    removeBgFormData.append('channels', 'rgba'); // 使用 RGBA 通道（支持透明度）
+    removeBgFormData.append('semitransparency', '1'); // 保留半透明区域
 
     const response = await fetch('https://api.remove.bg/v1.0/removebg', {
       method: 'POST',

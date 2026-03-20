@@ -1,6 +1,7 @@
 name = "image-background-remover"
 compatibility_date = "2024-01-01"
 account_id = "a126f3b879fa0b26273a10ca56ff2c5c"
+pages_build_output_dir = ".vercel/output/static"
 
 [env.production]
 vars = { ENVIRONMENT = "production" }
